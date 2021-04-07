@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "156786907163",
+    "project_id": "finalmidterminput",
+    "storage_bucket": "finalmidterminput.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156786907163:android:3928cab4f8e0795ff840be",
+        "android_client_info": {
+          "package_name": "com.example.esguerra_activity_finalmidtermgrades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156786907163-5sj8suols465j3fmd0fahah4mvedloj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJjwGcBG3d2nRKP0RKaJm4r16KseYH568"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156786907163-5sj8suols465j3fmd0fahah4mvedloj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
