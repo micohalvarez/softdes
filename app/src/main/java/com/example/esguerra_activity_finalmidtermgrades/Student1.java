@@ -1,16 +1,16 @@
 package com.example.esguerra_activity_finalmidtermgrades;
 
-public class Student {
+public class Student1 {
     private String finalmidterm;
     private String finalfinal;
     private String finaloverall;
     private String finalconvertgrade;
     private String finalstatus;
 
-    public Student() {
+    public Student1() {
     }
 
-    public Student(String finalmidterm, String finalfinal, String finaloverall, String finalconvertgrade, String finalstatus) {
+    public Student1(String finalmidterm, String finalfinal, String finaloverall, String finalconvertgrade, String finalstatus) {
         this.finalmidterm = finalmidterm;
         this.finalfinal = finalfinal;
         this.finaloverall = finaloverall;

@@ -1,27 +1,16 @@
 package com.example.esguerra_activity_finalmidtermgrades;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.io.DataInput;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView midTermGrade,finalGrade,overAllGrade,Status,Convert;
     private Double Stat;
     DatabaseReference myreff;
-    Student student;
+    Student1 student1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        student = new Student();
+        student1 = new Student1();
         midTermGrade = findViewById(R.id.midtermGrade);
         finalGrade = findViewById(R.id.finalGrade);
         overAllGrade = findViewById(R.id.overAllGrade);
@@ -51,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
         button =  findViewById(R.id.midtermbutton);
         Buttonsave = findViewById(R.id.btnSave);
 
-        midTermGrade.setText("0");
-        finalGrade.setText("0");
-        Status.setText("0");
-        Convert.setText("0");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,24 +109,35 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        myreff = FirebaseDatabase.getInstance().getReference().child("Student");
+        myreff = FirebaseDatabase.getInstance().getReference().child("Student1");
 
 
         Buttonsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    student.setFinalmidterm("0");
-                    student.setFinalfinal("0");
-                    student.setFinalconvertgrade("0");
-                    student.setFinaloverall("0");
-                    student.setFinalstatus("0");
+//                    student.setFinalmidterm("0");
+//                    student.setFinalfinal("0");
+//                    student.setFinalconvertgrade("0");
+//                    student.setFinaloverall("0");
+//                    student.setFinalstatus("0");
+//
+//                    String key = myreff.push().getKey();
+//                    myreff.child(key).setValue(student);
+//                    System.out.println(myreff.getKey());
+//
+//                    Toast.makeText(MainActivity.this, "Data Submitted Successfully", Toast.LENGTH_LONG).show();
+                student1.setFinalstatus(Status.getText().toString().trim());
+                student1.setFinaloverall(overAllGrade.getText().toString().trim());
+                student1.setFinalconvertgrade(Convert.getText().toString().trim());
+                student1.setFinalfinal(finalGrade.getText().toString().trim());
+                student1.setFinalmidterm(midTermGrade.getText().toString().trim());
 
-                    String key = myreff.push().getKey();
-                    myreff.child(key).setValue(student);
-                    System.out.println(myreff.getKey());
+                String key = myreff.push().getKey();
+                myreff.child(key).setValue(student1);
+                Toast.makeText(MainActivity.this,"Grades Has Been Submitted",Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(MainActivity.this, "Data Submitted Successfully", Toast.LENGTH_LONG).show();
+
 
             }
         });
