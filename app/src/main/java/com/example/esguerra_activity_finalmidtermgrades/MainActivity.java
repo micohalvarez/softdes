@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Double Stat;
     DatabaseReference myreff;
     Student1 student1;
+    TextView tGatherGrade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         overAllGrade = findViewById(R.id.overAllGrade);
         Status = findViewById(R.id.status);
         Convert = findViewById(R.id.convert);
+        tGatherGrade = findViewById(R.id.gatherGrade);
 
         compute = findViewById(R.id.compute);
         button =  findViewById(R.id.midtermbutton);
@@ -56,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        tGatherGrade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent successintentgrade = new Intent (MainActivity.this, GetGradeData.class);
+                startActivity(successintentgrade);
+
+            }
+        });
         compute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,20 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        myreff = FirebaseDatabase.getInstance().getReference().child("message");
-//        myreff.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                   System.out.println(dataSnapshot.getChildrenCount());
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
         myreff = FirebaseDatabase.getInstance().getReference().child("Student1");
 
 
@@ -116,17 +112,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                    student.setFinalmidterm("0");
-//                    student.setFinalfinal("0");
-//                    student.setFinalconvertgrade("0");
-//                    student.setFinaloverall("0");
-//                    student.setFinalstatus("0");
-//
-//                    String key = myreff.push().getKey();
-//                    myreff.child(key).setValue(student);
-//                    System.out.println(myreff.getKey());
-//
-//                    Toast.makeText(MainActivity.this, "Data Submitted Successfully", Toast.LENGTH_LONG).show();
                 student1.setFinalstatus(Status.getText().toString().trim());
                 student1.setFinaloverall(overAllGrade.getText().toString().trim());
                 student1.setFinalconvertgrade(Convert.getText().toString().trim());
